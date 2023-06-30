@@ -5,15 +5,15 @@ body {
 }
 
 .container {
-  width: 500px;
-  min-height: 200px;
-  height: auto;
-  margin: 0 auto;
+  min-height:300px;
+  max-width:250px;
+  margin:40px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(-225deg, #ffffff 50%, #a8ffb2 50%);
+  /*background: #4835d4;*/
+  background: linear-gradient(#8CA6DB, #B993D6);
 }
 
 form {
@@ -23,7 +23,7 @@ form {
 
 h2 {
   text-align: center;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 30px;
 }
 
@@ -47,13 +47,13 @@ input[type="email"]::placeholder {
   align-items: center;
   margin-top: -10px;
   margin-bottom: 10px;
-  color: #666;
+  color: #ffffff;
   font-size: 12px;
 }
 
 .forgot-password {
   text-align: center;
-  color: #666;
+  color: #ffffff;
   margin-top: 10px;
   text-decoration: none;
   font-size: 12px;
@@ -61,6 +61,14 @@ input[type="email"]::placeholder {
 
 .forgot-password:hover {
   text-decoration: underline;
+}
+
+.new-account {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 12px;
 }
 
 input[type="checkbox"] {
@@ -82,15 +90,16 @@ input[type="submit"]:hover {
 
 /* Estilos específicos para a página de login */
 .container.login-container {
-  width: 90%;
+  width: 50%;
   max-width: 400px;
   margin-top: 100px;
 }
 
 /* Estilos específicos para a página de cadastro */
 .container.cadastro-container {
-  width: 300px;
-  margin-top: 50px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 100px;
 }
 
 p {
@@ -107,4 +116,12 @@ p a {
 
 p a:hover {
   text-decoration: underline;
+}
+
+.sign-in{
+  text-align: center;
+  color: #ffffff;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 12px;
 }
