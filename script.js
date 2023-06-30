@@ -32,3 +32,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     console.error(error);
   });
 });
+
+function openRegisterPage() {
+  window.location.href = "cadastro.html";
+}
