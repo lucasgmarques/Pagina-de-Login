@@ -11,18 +11,13 @@ db = mysql.connector.connect(
 # Dados dos usuários a serem inseridos
 usuarios = [
     {
-        'fullname': 'João',
-        'email': 'joao@example.com',
+        'fullname': 'José',
+        'email': 'joseo@example.com',
         'password': '123456789'
     },
     {
-        'fullname': 'Maria',
-        'email': 'maria@example.com',
-        'password': '123456789'
-    },
-    {
-        'fullname': 'Pedro',
-        'email': 'pedro@example.com',
+        'fullname': 'Roberto',
+        'email': 'roberto@example.com',
         'password': '123456789'
     }
 ]
