@@ -22,15 +22,15 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
       password: password
     })
   })
-  .then(response => response.json())
-  .then(data => {
-    // Aqui você pode tratar a resposta do backend, como exibir uma mensagem de sucesso ou erro
-    console.log(data);
-  })
-  .catch(error => {
-    // Tratar erros de requisição ou resposta do backend
-    console.error(error);
-  });
+    .then(response => response.json())
+    .then(data => {
+      // Aqui você pode tratar a resposta do backend, como exibir uma mensagem de sucesso ou erro
+      console.log(data);
+    })
+    .catch(error => {
+      // Tratar erros de requisição ou resposta do backend
+      console.error(error);
+    });
 });
 
 function openRegisterPage() {
