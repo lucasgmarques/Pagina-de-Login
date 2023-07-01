@@ -1,14 +1,27 @@
 from flask import Flask, render_template, request
+from dotenv import load_dotenv
 import mysql.connector
+import os
 
+
+# Carrega as variáveis de ambiente do arquivo .env
+load_dotenv()
+
+# Cria uma instância do app Flask
 app = Flask(__name__)
 
 # Configurar as informações do banco de dados MySQL
+db_host= os.getenv('DB_HOST')
+db_user= os.getenv('DB_USERNAME')
+db_password= os.getenv('DB_PASSWORD')
+db_database= os.getenv('DB_DATABASE')
+
+# Conecta ao banco de dados
 db = mysql.connector.connect(
-    host="localhost",
-    user="lucas",
-    password="123456789",
-    database="auth"
+    host=db_host,
+    user=db_user,
+    password=db_password,
+    database=db_database
 )
 
 # Função para validar o email
