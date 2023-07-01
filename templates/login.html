@@ -3,15 +3,15 @@
 
 <head>
   <title>Página de Login</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
   <div class="container login-container">
-    <form class="login-form">
+    <form class="login-form" method="POST" action="/login">
       <h2>Faça login</h2>
-      <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
+      <input type="email" id="email" name="email" placeholder="Email" required>
       <input type="password" id="password" name="password" placeholder="Senha" required>
       <div class="remember-me">
         <input type="checkbox" id="remember" name="remember">
@@ -19,7 +19,7 @@
       </div>
       <input type="submit" value="Entrar">
       <a href="#" class="forgot-password">Esqueceu a senha?</a>
-      <div class="new-account">Não tem uma conta? <a href="cadastro.html">Inscrever-se</a>
+      <div class="new-account">Não tem uma conta? <a href="/cadastro">Inscrever-se</a>
       </div>
     </form>
   </div>

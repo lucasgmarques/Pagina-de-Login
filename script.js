@@ -12,7 +12,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
   // Aqui você pode adicionar a lógica para enviar os dados para o backend e realizar a autenticação
 
   // Exemplo de envio dos dados para o backend usando o Fetch API
-  fetch("/api/login", {
+  fetch("/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -34,5 +34,5 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 });
 
 function openRegisterPage() {
-  window.location.href = "cadastro.html";
+  window.location.href = "http://localhost:5000/cadastro";
 }
