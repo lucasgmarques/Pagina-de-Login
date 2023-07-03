@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
 import os
+import re
 import bcrypt
 import mysql.connector
 
@@ -92,8 +93,14 @@ def login():
 
 # Função para validar o email (pode ser substituída por uma validação personalizada)
 def is_valid_email(email):
-    # Implemente a lógica de validação do email aqui
-    return "@" in email
+    # Define the regex pattern for email validation
+    pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+
+    # Use the regex pattern to match the email address
+    match = re.match(pattern, email)
+
+    # Return True if the email address is valid, False otherwise
+    return bool(match)
 
 # Executa o aplicativo Flask
 if __name__ == '__main__':
