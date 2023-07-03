@@ -10,9 +10,6 @@ load_dotenv()
 # Cria uma instância do aplicativo Flask
 app = Flask(__name__)
 
-# Ativa o modo de depuração
-# app.debug = True
-
 # Configurações do banco de dados
 db_host = os.getenv('DB_HOST')
 db_username = os.getenv('DB_USERNAME')
@@ -69,18 +66,19 @@ def login():
         email = request.form['email']
         password = request.form['password']
 
-        cursor = db.cursor()
-        query = "SELECT * FROM usuarios WHERE email = %s"
+        cursor = db.cursor(prepared=True)  # Cursor preparado para evitar ataques de injeção de SQL
+
+        query = "SELECT password FROM usuarios WHERE email = %s"
         values = (email,)
         cursor.execute(query, values)
 
-        user = cursor.fetchone()
+        result = cursor.fetchone()
         cursor.close()
 
-        if password is not None:
-            password = password.encode('utf-8')
+        if result:
+            hashed_password = result[0]
 
-            if bcrypt.checkpw(password, user[2].encode('utf-8')):
+            if bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8')):
                 # Usuário autenticado com sucesso
                 return "Login bem-sucedido!"
             else:
@@ -100,4 +98,3 @@ def is_valid_email(email):
 # Executa o aplicativo Flask
 if __name__ == '__main__':
     app.run()
-
