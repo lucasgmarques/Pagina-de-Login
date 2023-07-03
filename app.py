@@ -1,3 +1,4 @@
+# -*- coding = utf-8 -*-
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
 import os
@@ -45,6 +46,9 @@ def cadastro():
         # Validar o email (pode ser usado um método de validação personalizado)
         if not is_valid_email(email):
             return "Por favor, forneça um email válido."
+
+        if is_email_registered(email):
+            return "Este e-mail já está cadastrado."
 
         # Realizar o hashing seguro da senha
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
@@ -101,6 +105,16 @@ def is_valid_email(email):
 
     # Return True if the email address is valid, False otherwise
     return bool(match)
+
+def is_email_registered(email):
+    cursor = db.cursor()
+    query = "SELECT COUNT(*) FROM usuarios WHERE email = %s"
+    values = (email,)
+    cursor.execute(query, values)
+    count = cursor.fetchone()[0]
+    cursor.close()
+
+    return count > 0
 
 # Executa o aplicativo Flask
 if __name__ == '__main__':
