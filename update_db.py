@@ -19,6 +19,11 @@ usuarios = [
         'fullname': 'Roberto',
         'email': 'roberto@example.com',
         'password': '123456789'
+    },
+    {
+        'fullname': 'Lucas',
+        'email': 'lucas@example.com',
+        'password': '123456789'
     }
 ]
 
